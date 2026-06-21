@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-# Usage: curl -sL https://raw.githubusercontent.com/JakobMelchard/core/main/update.sh | bash
+# Usage: curl -sL https://raw.githubusercontent.com/JakobMelchard/cloudflare-core/main/update.sh | bash
 
 COREDIR=".core"
 

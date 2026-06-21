@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
-# Usage: curl -sL https://raw.githubusercontent.com/JakobMelchard/core/main/install.sh | bash
+# Usage: curl -sL https://raw.githubusercontent.com/JakobMelchard/cloudflare-core/main/install.sh | bash
 
-CORE_REPO="JakobMelchard/core"
+CORE_REPO="JakobMelchard/cloudflare-core"
 COREDIR=".core"
 
 if [ -d "$COREDIR" ]; then

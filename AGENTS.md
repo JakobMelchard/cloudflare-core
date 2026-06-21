@@ -1,7 +1,7 @@
-# core — shared CF infra (Pages + Workers)
+# cloudflare-core — shared CF infra (Pages + Workers)
 
-Install: `curl -sL https://raw.githubusercontent.com/JakobMelchard/core/main/install.sh | bash`
-Update:  `curl -sL https://raw.githubusercontent.com/JakobMelchard/core/main/update.sh | bash`
+Install: `curl -sL https://raw.githubusercontent.com/JakobMelchard/cloudflare-core/main/install.sh | bash`
+Update:  `curl -sL https://raw.githubusercontent.com/JakobMelchard/cloudflare-core/main/update.sh | bash`
 
 Seeds hooks, configs, and release-please workflow.
 Consumer provides its own Makefile (from pages-template or workers-template).
