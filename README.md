@@ -5,12 +5,15 @@ Shared Cloudflare infra for Pages + Workers projects.
 ## Use
 
 ```sh
-git clone --depth 1 https://github.com/JakobMelchard/cloudflare-core.git my-project
-cd my-project
-rm -rf .git
-git init
+# In any Pages or Workers project:
+curl -sL https://raw.githubusercontent.com/JakobMelchard/cloudflare-core/main/install.sh | bash
 ```
 
-Seeds hooks, configs, and CI workflows.
+Adds `.core` submodule, sets hooks path, seeds config files.
 
-See [pages-template](https://github.com/JakobMelchard/pages-template) or [workers-template](https://github.com/JakobMelchard/workers-template) for project-specific setup.
+```sh
+# Pull latest:
+curl -sL https://raw.githubusercontent.com/JakobMelchard/cloudflare-core/main/update.sh | bash
+```
+
+See [pages-template](https://github.com/JakobMelchard/pages-template) or [workers-template](https://github.com/JakobMelchard/workers-template).
