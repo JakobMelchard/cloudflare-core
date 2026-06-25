@@ -7,23 +7,21 @@ PORT := $(if $(wildcard .pages-name),42000,8787)
 default: dev
 
 dev:
-	if [ -f .pages-name ]; then
-		if [ -x scripts/dev ]; then
-			exec scripts/dev
-		fi
-		wrangler pages dev . --port $(PORT) --live-reload
-	elif [ -f wrangler.toml ]; then
-		wrangler dev --port $(PORT)
-	else
-		echo "ERROR: create .pages-name (Pages) or wrangler.toml (Workers)" >&2
-		exit 1
+	if [ -f .pages-name ]; then \
+		if [ -x scripts/dev ]; then exec scripts/dev; fi; \
+		wrangler pages dev . --port $(PORT) --live-reload; \
+	elif [ -f wrangler.toml ]; then \
+		wrangler dev --port $(PORT); \
+	else \
+		echo "ERROR: create .pages-name (Pages) or wrangler.toml (Workers)" >&2; \
+		exit 1; \
 	fi
 
 validate:
-	if [ -x scripts/validate ]; then
-		scripts/validate
-	elif [ -f wrangler.toml ]; then
-		wrangler deploy --dry-run
+	if [ -x scripts/validate ]; then \
+		scripts/validate; \
+	elif [ -f wrangler.toml ]; then \
+		wrangler deploy --dry-run; \
 	fi
 
 build:
@@ -39,12 +37,12 @@ check:
 	[ -f package.json ] && npm run format:check
 
 deploy:
-	if [ -f .pages-name ]; then
-		PROJECT_NAME=$$(cat .pages-name)
-		wrangler pages deploy $$([ -d public ] && echo "public" || echo ".") --project-name=$$PROJECT_NAME
-	elif [ -f wrangler.toml ]; then
-		wrangler deploy
-	else
-		echo "ERROR: create .pages-name (Pages) or wrangler.toml (Workers)" >&2
-		exit 1
+	if [ -f .pages-name ]; then \
+		PROJECT_NAME=$$(cat .pages-name); \
+		wrangler pages deploy $$([ -d public ] && echo "public" || echo ".") --project-name=$$PROJECT_NAME; \
+	elif [ -f wrangler.toml ]; then \
+		wrangler deploy; \
+	else \
+		echo "ERROR: create .pages-name (Pages) or wrangler.toml (Workers)" >&2; \
+		exit 1; \
 	fi
