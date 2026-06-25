@@ -1,0 +1,6 @@
+#!/bin/bash
+set -eo pipefail
+cd "$(git rev-parse --show-toplevel)"
+if [ -f .gitmodules ]; then
+  git submodule update --init --remote .core 2>/dev/null || true
+fi
