@@ -8,7 +8,7 @@ if command -v gitleaks &>/dev/null; then
   gitleaks git --pre-commit --staged 2>/dev/null
 fi
 
-if command -v npx &>/dev/null && [ -f package.json ]; then
+if command -v npx &>/dev/null; then
   STAGED=$(git diff --cached --name-only --diff-filter=d | grep -E '\.(css|html|js)$' || true)
   if [ -n "$STAGED" ]; then
     echo "$STAGED" | xargs npx prettier --check 2>/dev/null || {
